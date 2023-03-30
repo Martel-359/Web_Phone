@@ -1,0 +1,30 @@
+div.col>a{
+    text-decoration: none;
+   color: rgb(98, 97, 96);  
+}
+div.col>a:hover{
+color: white; 
+}
+div.society>a>p>i{
+    font-size: x-large;
+}
+div.col>p>a{
+    text-decoration: none;
+    color: rgb(98, 97, 96);  
+
+}
+div.col>p>a:hover{
+ color: white;
+}
+div.col>a>p>span:hover{
+    color: blue;
+   }
+i.fa-facebook:hover{
+    color: #3b5998;
+}
+i.fa-twitter:hover{
+    color: #55acee;
+}
+i.fa-instagram:hover{
+    color: #ac2bac;
+}
