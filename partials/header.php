@@ -13,81 +13,106 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="css/css_phone.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="css/styles.css" rel="stylesheet" />
-        
-    </head>
+        <link href="css/css_header.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <style>
+
+</style>
+
+</head>
     <body>
-        <!-- navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <i class="fas fa-bars"></i>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#"><img style="height: 72px;" src="./imgs/logo.png" alt=""></a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active fs-4" aria-current="page" href="#">Trang Chủ</a>
-                  </li>
-                  <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Điện thoại
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Iphone</a></li>
-            <li><a class="dropdown-item" href="#">SamSung</a></li>
-            <li><a class="dropdown-item" href="#">Các dòng khác</a></li>
-          </ul>
-        </li>
-                  <li class="nav-item">
-                    <a class="nav-link fs-4" href="#">Về chúng tôi</a>
-                  </li>
-                </ul>
-                <form class="d-flex input-group w-auto">
-                  <input
-                    type="search"
-                    class="form-control"
-                    placeholder="Type query"
-                    aria-label="Search"
-                  />
-                  <button
-                    class="btn btn-outline-primary"
-                    type="button"
-                    data-mdb-ripple-color="dark"
-                  >
-                    Search
-                  </button>
-                </form>
-                <!-- cart -->
-                <form class="d-flex ml-2 m-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href="#" class="navbar-brand">Shop<b>Phone</b></a>  		
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+		<div class="navbar-nav">
+			<a href="#" class="nav-item nav-link">Trang chủ</a>
+			<a href="#" class="nav-item nav-link">Về chúng tôi</a>			
+			<div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Điện thoại</a>
+				<div class="dropdown-menu">					
+					<a href="#" class="dropdown-item">Iphone</a>
+					<a href="#" class="dropdown-item">Sang Sung</a>
+					<a href="#" class="dropdown-item">Oppo</a>
+					<a href="#" class="dropdown-item">Khác</a>
+                </div>
+            </div>
+		</div>
+		<form class="navbar-form form-inline">
+			<div class="input-group search-box">								
+				<input type="text" id="search" class="form-control" placeholder="Tên sản phẩm...">
+				<div class="input-group-append">
+					<span class="input-group-text">
+						<i class="material-icons">&#xE8B6;</i>
+					</span>
+				</div>
+			</div>
+		</form>
+    
+		<div class="navbar-nav ml-auto action-buttons">
+    <form class="nav-form form-inline mr-2">
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill"></i>
                         Cart
-                        <span class="badge bg-dark text-white rounded-pill">0</span>
+                        <span class="badge bg-dark text-white rounded-pill">4</span>
                     </button>
-                </form>
-                <!-- user -->
-                <button type="button" class="btn btn-secondary"><i class="far fa-circle-user"></i></button>
-            </div>
-          </nav>
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+      </form>
+			<div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Đăng Nhập</a>
+                <div class="dropdown-menu action-form">
+					<form action="/examples/actions/confirmation.php" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Tài Khoản" required="required">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Mật khẩu" required="required">
+						</div>
+						<input type="submit" class="btn btn-primary btn-block" value="Đăng Nhập">
+						<div class="text-center mt-2">
+							<a href="#">Quên mật khẩu?</a>
+						</div>
+					</form>
                 </div>
-            </div>
-        </header>
+			</div>
+			<div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Đăng ký</a>
+                <div class="dropdown-menu action-form">
+					<form action="/examples/actions/confirmation.php" method="post">
+						<p class="hint-text">Điền thông tin để đăng ký</p>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Tên tài khoản" required="required">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Mật khẩu" required="required">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Nhập lại mật khẩu" required="required">
+						</div>
+						<div class="form-group">
+							<label class="form-check-label"><input type="checkbox" required="required"> Chấp nhận <a href="#">Điều Khoản &amp; Chính Sách</a></label>
+						</div>
+						<input type="submit" class="btn btn-primary btn-block" value="Đăng Ký">
+					</form>
+				</div>
+			</div>
+        </div>
+	</div>
+</nav>
+</body>
+<script>
+// Prevent dropdown menu from closing when click inside the form
+$(document).on("click", ".action-buttons .dropdown-menu", function(e){
+	e.stopPropagation();
+});
+</script>
+</html>
