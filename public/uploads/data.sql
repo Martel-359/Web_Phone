@@ -1,9 +1,9 @@
 CREATE TABLE `loai_hang_hoas` (
   `id` int(11) NOT NULL PRIMARY KEY,
-  `Ten_loai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ten_loai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `loai_hang_hoas` (`id`, `Ten_loai`) VALUES
+INSERT INTO `loai_hang_hoas` (`id`, `ten_loai`) VALUES
 (1, 'Laptop'),
 (2, 'SamSung'),
 (3, 'iPhone');
@@ -37,24 +37,40 @@ INSERT INTO `hang_hoas` (`id`, `ten_hang_hoa`, `gia`, `so_luong_hang`, `hinh`, `
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Dia_Chi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `So_Dien_Thoai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vai_tro` int NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- pass=123456(MD5)
-INSERT INTO `users` (`id`, `name`, `Dia_Chi`, `So_Dien_Thoai`, `email`,`password`) VALUES
-(1,'doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-(2,'ducvinh','cantho','0984568267','ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `users` (`id`,`email`,`password`,`vai_tro`) VALUES
+(1,'doanhuuvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
+(2,'ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
+(3,'admin','e10adc3949ba59abbe56e057f20f883e',2);
 
-CREATE TABLE `admins` (
+CREATE TABLE `khach_hangs` (
   `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `dia_Chi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `so_Dien_Thoai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE 
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `khach_hangs`(`id`,`name`,`dia_chi`,`so_dien_thoai`,`email`) VALUES
+(1,'doanhuuvinh','angiang','0945681681','doanhuuvinh@gmail.com'),
+(2,'ducvinh','cantho','0698456871','ducvinh@gmail.com');
+
+
+
+CREATE TABLE `nhan_viens` (
+  `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dia_Chi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `so_Dien_Thoai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
---pass=123456(MD5)
-INSERT INTO `admins` (`id`, `name`,`email`,`password`) VALUES
-(1,'doanhuuvinh','vinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-(2,'ducvinh','ducvinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+
+INSERT INTO `nhan_viens` (`id`, `name`,`dia_chi`,`so_dien_thoai`,`email`) VALUES
+(1,'abc','angiang','0945681881','abc@gmail.com'),
+(2,'nhanvien','cantho','0945984681','nhanvien@gmail.com');
+
+
