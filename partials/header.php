@@ -122,7 +122,7 @@ include __DIR__ . '/../function.php';
 				<div class="btn-group">
                 <button type="button" class="btn btn-danger">Logout User</button>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle</span>
+                    <i class="bi bi-caret-down-fill"></i>
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Profile</a>
