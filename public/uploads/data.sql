@@ -49,7 +49,7 @@ INSERT INTO `khach_hang` (`id`, `ten`, `dia_chi`, `so_dien_thoai`, `email`,`mat_
 (2,'ducvinh','cantho','0984568267','ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e');
 
 CREATE TABLE `admin` (
-  `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
+  `id` bigint(20) UNSIGNED  NOT NULL PRIMARY KEY,
   `ten` varchar(255) COLLATE utf8mb4_unicode_ci ,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
   `mat_khau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
