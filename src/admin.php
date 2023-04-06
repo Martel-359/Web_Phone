@@ -24,7 +24,8 @@ class admin{
 	{
 	
 		if (isset($data['email'])) {
-			$this->email = preg_replace('/\D+/', '', $data['email']);
+			$this->email = trim($data['email']);
+
 		}
 
 		if (isset($data['mat_khau'])) {

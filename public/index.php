@@ -1,19 +1,27 @@
-<?php include('../partials/header.php') ?>
+<?php 
+include('../partials/header.php');
+
+use CT275\Labs\hang_hoa;
+
+$hang_hoa = new hang_hoa($PDO);
+$hang_hoas = $hang_hoa->all();
+?>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
+                <?php foreach ($hang_hoas as $hang_hoa) ?>  
+                <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="<?=$hang_hoa->hinh ?>" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <h5 class="fw-bolder"><?=  $hang_hoa->ten_hang_hoa ?></h5>
                                     <!-- Product price-->
-                                    $40.00 - $80.00
+                                    <?= $hang_hoa->gia ?>VND
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -22,12 +30,13 @@
                             </div>
                         </div>
                     </div>
+                <?php ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="./uploads/12333.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

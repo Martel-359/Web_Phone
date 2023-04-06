@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id'] = $khach_hang_formdb->id;// id_kh
             $_SESSION['email'] = $khach_hang_formdb->email;
             $_SESSION['mat_khau'] = $khach_hang_formdb->mat_khau;
-            $_SESSION['vaitro']= $khach_hang_formdb->vaitro;
+            //$_SESSION['vaitro']= $khach_hang_formdb->vaitro;
            // $khachhang->save_id_kh($khach_hang_formdb->getId());
            // echo ('ban da dang nhap thanh cong');
        
@@ -30,10 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $admin_formdbs = $admin_db->all();
     $admin_2 = new admin($PDO);
     $admin_dangnhap = $admin_2->fill($_POST);
+    echo $admin_dangnhap->email;
+    echo $admin_dangnhap->mat_khau;
     foreach ($admin_formdbs as $admin_formdb) :
         if (($admin_formdb->email == $admin_dangnhap->email) && $admin_formdb->mat_khau == $admin_dangnhap->mat_khau) {
         $_SESSION['admin_formdb'] = 'admin';
-        $_SESSION['id'] = $admin_formdb->id;// id_kh
+        //$_SESSION['id'] = $admin_formdb->id;// id_kh
         $_SESSION['email'] = $admin_formdb->email;
         $_SESSION['mat_khau'] = $admin_formdb->mat_khau;
        // $khachhang->save_id_kh($admin_formdb->getId());
@@ -42,5 +44,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('themsanpham.php');
        }    
     endforeach;
-    echo ("Đăng nhập hehe !!! Vui lòng đăng nhập lại");
+    echo ("Đăng nhập thất bại !!! Vui lòng đăng nhập lại");
 }
