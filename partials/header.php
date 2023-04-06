@@ -1,5 +1,14 @@
+<?php
+require_once '../bootstrap.php'; // tu dong nap lop,khong gian ten,dbconnect
+use CT275\Labs\khach_hang;
+
+if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
+  session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+}
+include __DIR__ . '/../function.php';
+?>
+
 <!DOCTYPE html>
-<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -66,16 +75,17 @@
                         Cart
                         <span class="badge bg-dark text-white rounded-pill">4</span>
                     </button>
-      </form>
+    </form>
+	<?php if (!isset($_SESSION['user'])) : ?>
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Đăng Nhập</a>
                 <div class="dropdown-menu action-form">
-					<form action="/examples/actions/confirmation.php" method="post">
+					<form  action="<?= BASE_URL_PATH . 'dangnhap.php' ?>"  method="post">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Tài Khoản" required="required">
+							<input name ="email" type="text" class="form-control" placeholder="Tài Khoản" required="required">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="Mật khẩu" required="required">
+							<input name ="mat_khau" type="password" class="form-control" placeholder="Mật khẩu" required="required">
 						</div>
 						<input type="submit" class="btn btn-primary btn-block" value="Đăng Nhập">
 						<div class="text-center mt-2">
@@ -105,6 +115,7 @@
 					</form>
 				</div>
 			</div>
+			<?php endif ?>
         </div>
 	</div>
 </nav>
@@ -115,4 +126,3 @@ $(document).on("click", ".action-buttons .dropdown-menu", function(e){
 	e.stopPropagation();
 });
 </script>
-</html>
