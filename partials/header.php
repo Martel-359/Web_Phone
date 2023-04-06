@@ -1,6 +1,7 @@
 <?php
 require_once '../bootstrap.php'; // tu dong nap lop,khong gian ten,dbconnect
 use CT275\Labs\khach_hang;
+use CT275\Labs\admin;
 
 if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
   session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -68,7 +69,7 @@ include __DIR__ . '/../function.php';
 			</div>
 		</form>
     
-		<div class="navbar-nav ml-auto action-buttons">
+	<div class="navbar-nav ml-auto action-buttons">
     <form class="nav-form form-inline mr-2">
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill"></i>
@@ -76,7 +77,7 @@ include __DIR__ . '/../function.php';
                         <span class="badge bg-dark text-white rounded-pill">4</span>
                     </button>
     </form>
-	<?php if (!isset($_SESSION['user'])) : ?>
+	<?php if ((!isset($_SESSION['khach_hang_formdb']))): ?>
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Đăng Nhập</a>
                 <div class="dropdown-menu action-form">
@@ -97,13 +98,13 @@ include __DIR__ . '/../function.php';
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Đăng ký</a>
                 <div class="dropdown-menu action-form">
-					<form action="/examples/actions/confirmation.php" method="post">
+					<form action="<?= BASE_URL_PATH . 'dangky.php' ?>" method="post">
 						<p class="hint-text">Điền thông tin để đăng ký</p>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Tên tài khoản" required="required">
+							<input name ="email" type="email" class="form-control" placeholder="Tên tài khoản" required="required">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="Mật khẩu" required="required">
+							<input name="mat_khau" type="password" class="form-control" placeholder="Mật khẩu" required="required">
 						</div>
 						<div class="form-group">
 							<input type="password" class="form-control" placeholder="Nhập lại mật khẩu" required="required">
@@ -116,6 +117,21 @@ include __DIR__ . '/../function.php';
 				</div>
 			</div>
 			<?php endif ?>
+			<?php if (isset($_SESSION['khach_hang_formdb'])) : ?>
+				<form class="nav-form form-inline mr-2" action="<?= BASE_URL_PATH . 'dangxuat.php' ?>" method="post">
+				<div class="btn-group">
+                <button type="button" class="btn btn-danger">Logout User</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <input type="submit" class="btn btn-danger btn-block" value="Đăng Xuất">
+                </div>
+          	  </div>
+    		</form>
+          <?php endif ?>
         </div>
 	</div>
 </nav>

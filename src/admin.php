@@ -2,17 +2,15 @@
 
 namespace CT275\Labs;
 
-class khach_hang{
+class admin{
 	private $db;
 
-	public $id = -1;
+	private $id = -1;
+	public $ten;
 	public $email;
     public $mat_khau;
-    public $so_dien_thoai;
-    public $dia_chi;
 	private $errors = [];
-
-	public function getId()
+    public function getId()
 	{
 		return $this->id;
 	}
@@ -24,13 +22,15 @@ class khach_hang{
 
 	public function fill(array $data)
 	{
+	
 		if (isset($data['email'])) {
-			$this->email = trim($data['email']);
+			$this->email = preg_replace('/\D+/', '', $data['email']);
 		}
 
 		if (isset($data['mat_khau'])) {
 			$this->mat_khau = trim($data['mat_khau']);
 		}
+
 		return $this;
 	}
 
@@ -39,7 +39,7 @@ class khach_hang{
 		return $this->errors;
 	}
 
-	public function validate()
+public function validate()
 	{
 		if (!$this->email) {
 			$this->errors['email'] = 'Email không được rỗng.';
@@ -51,25 +51,26 @@ class khach_hang{
 		return empty($this->errors);
 	}
 
+
 	public function all()
 	{
-		$khach_hangs = [];
-		$stmt = $this->db->prepare('select * from khach_hang');
+		$admins = [];
+		$stmt = $this->db->prepare('select * from admin');
 		$stmt->execute();
 		while ($row = $stmt->fetch()) {
-			$khach_hang = new khach_hang($this->db);
-			$khach_hang->fillFromDB($row);
-			$khach_hangs[] = $khach_hang;
+			$admin = new admin($this->db);
+			$admin->fillFromDB($row);
+			$admins[] = $admin;
 		}
-		return $khach_hangs;
+		return $admins;
 	}
-	
-	protected function fillFromDB(array $row) // truyen doi tuong tu db
+	protected function fillFromDB(array $row)
 	{
 		[
 			'id' => $this->id,
-			'email' => $this->email,
-            'mat_khau' => $this->mat_khau,
+			'ten' => $this->ten,
+            'email' => $this->email,
+			'mat_khau' => $this->mat_khau,
 		] = $row;
 		return $this;
 	}
@@ -78,19 +79,22 @@ class khach_hang{
 	{
 		$result = false;
 		if ($this->id >= 0) {
-			$stmt = $this->db->prepare('update khach_hang set email = :email,
-mat_khau = :mat_khau where id = :id');
+			$stmt = $this->db->prepare('update admin set ten = :ten,
+email = :email, mat_khau = :mat_khau, updated_at = now()
+where id = :id');
 			$result = $stmt->execute([
-				'name' => $this->name,
-				'phone' => $this->phone,
-				'notes' => $this->notes,
-				'id' => $this->id
+				'ten' => $this->ten,
+				'email' => $this->email,
+				'mat_khau' => $this->mat_khau,
+				'id' => $this->id,
 			]);
 		} else {
 			$stmt = $this->db->prepare(
-				'insert into khach_hang (email, mat_khau) values (:email, :mat_khau)'
+				'insert into admin (ten, email, mat_khau, created_at, updated_at)
+values (:ten, :email, :mat_khau, now(), now())'
 			);
 			$result = $stmt->execute([
+				// 'ten' => $this->ten,
 				'email' => $this->email,
 				'mat_khau' => $this->mat_khau
 			]);
@@ -102,7 +106,7 @@ mat_khau = :mat_khau where id = :id');
 	}
 	public function find($id)
 	{
-		$stmt = $this->db->prepare('select * from khach_hang where id = :id');
+		$stmt = $this->db->prepare('select * from admin where id_nv = :id');
 		$stmt->execute(['id' => $id]);
 		if ($row = $stmt->fetch()) {
 			$this->fillFromDB($row);
@@ -120,7 +124,8 @@ mat_khau = :mat_khau where id = :id');
 	}
 	public function delete()
 	{
-		$stmt = $this->db->prepare('delete from khach_hang where id = :id');
+		$stmt = $this->db->prepare('delete from admin where id = :id');
 		return $stmt->execute(['id' => $this->id]);
 	}
+
 }

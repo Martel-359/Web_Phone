@@ -35,22 +35,22 @@ INSERT INTO `hang_hoa` (`id`, `ten_hang_hoa`,`gia`, `so_luong_hang`, `hinh`, `mo
 (11, 'Laptop Asus VivoBook Gaming F571GT i7 9750H/8GB/512GB/120Hz/4GB GTX1650/Win10 (AL858T)',24490000, 18, 'public/uploads/asus-vivobook-gaming-f571gt-i7-al858t-226256-600x600.jpg', 'mo_ta', 1),
 (12, 'Laptop Lenovo IdeaPad Slim 3 15IIL05 i3 1005G1/4GB/512GB/Win10 (81WE003RVN)', 25000000, 5, 'public/uploads/lenovo-ideapad-3-15iil05-i3-81we003rvn-013920-053901-600x600.jpg', 'mo_ta',1);
 
-CREATE TABLE `nguoi_dung` (
-  `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
-  `ten` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dia_chi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `so_dien_thoai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `khach_hang` (
+  `id` bigint(20) UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY ,
+  `ten` varchar(255) COLLATE utf8mb4_unicode_ci ,
+  `dia_chi` varchar(255) COLLATE utf8mb4_unicode_ci ,
+  `so_dien_thoai` varchar(255) COLLATE utf8mb4_unicode_ci ,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
   `mat_khau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- pass=123456(MD5)
-INSERT INTO `nguoi_dung` (`id`, `ten`, `dia_chi`, `so_dien_thoai`, `email`,`mat_khau`) VALUES
+INSERT INTO `khach_hang` (`id`, `ten`, `dia_chi`, `so_dien_thoai`, `email`,`mat_khau`) VALUES
 (1,'doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
 (2,'ducvinh','cantho','0984568267','ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e');
 
 CREATE TABLE `admin` (
   `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY,
-  `ten` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ten` varchar(255) COLLATE utf8mb4_unicode_ci ,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
   `mat_khau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

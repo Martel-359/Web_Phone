@@ -10,13 +10,13 @@ $errors = [];
 $dangnhap=false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$khachhang = new khach_hang($PDO);
-	$user->fill($_POST);
-	if ($user->validate()) {
-		$user->save();
+	$khachhang->fill($_POST);
+	if ($khachhang->validate()) {
+		$khachhang->save();
 		$dangnhap=true;
 		
 	}
-	$errors = $user->getValidationErrors();
+	$errors = $khachhang->getValidationErrors();
 }
 
 
