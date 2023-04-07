@@ -2,6 +2,8 @@
 require_once '../bootstrap.php'; // tu dong nap lop,khong gian ten,dbconnect
 use CT275\Labs\khach_hang;
 use CT275\Labs\admin;
+use CT275\Labs\hang_hoa;
+use CT275\Labs\loai_hang_hoa;
 
 if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
   	session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -11,6 +13,9 @@ include __DIR__ . '/../function.php';
 
 // $khach_hang= new khach_hang($PDO);
 
+
+$loai_hang_hoa = new loai_hang_hoa($PDO);
+$loai_hang_hoas= $loai_hang_hoa->all();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +24,7 @@ include __DIR__ . '/../function.php';
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
+        <title>Shop Homepage</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -54,11 +59,10 @@ include __DIR__ . '/../function.php';
 			<a href="#" class="nav-item nav-link">Về chúng tôi</a>			
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Điện thoại</a>
-				<div class="dropdown-menu">					
-					<a href="#" class="dropdown-item">Iphone</a>
-					<a href="#" class="dropdown-item">Sang Sung</a>
-					<a href="#" class="dropdown-item">Oppo</a>
-					<a href="#" class="dropdown-item">Khác</a>
+				<div class="dropdown-menu">
+					<?php foreach($loai_hang_hoas as $loai_hang_hoa) : ?>					
+					<a href="<?= BASE_URL_PATH ."hang_hoa.php"?>" value="<?= $loai_hang_hoa->getId() ?>"  class="dropdown-item"><?= $loai_hang_hoa->ten_loai ?></a>
+					<?php endforeach ?>
                 </div>
             </div>
 		</div>
