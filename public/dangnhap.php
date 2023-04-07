@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //$_SESSION['vaitro']= $khach_hang_formdb->vaitro;
            // $khachhang->save_id_kh($khach_hang_formdb->getId());
            // echo ('ban da dang nhap th
-            redirect('sanpham.php');
+            redirect('hanghoa.php');
            }   
     endforeach;
     

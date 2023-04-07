@@ -55,20 +55,20 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
-			<a href="#" class="nav-item nav-link">Trang chủ</a>
+			<a href="index.php" class="nav-item nav-link">Trang chủ</a>
 			<a href="#" class="nav-item nav-link">Về chúng tôi</a>			
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Điện thoại</a>
 				<div class="dropdown-menu">
 					<?php foreach($loai_hang_hoas as $loai_hang_hoa) : ?>					
-					<a href="<?= BASE_URL_PATH ."hang_hoa.php"?>" value="<?= $loai_hang_hoa->getId() ?>"  class="dropdown-item"><?= $loai_hang_hoa->ten_loai ?></a>
+					<a href="<?= BASE_URL_PATH ."hanghoa.php?id=".$loai_hang_hoa->getId()?>" value="<?= $loai_hang_hoa->getId() ?>"  class="dropdown-item"><?= $loai_hang_hoa->ten_loai ?></a>
 					<?php endforeach ?>
                 </div>
             </div>
 		</div>
-		<form class="navbar-form form-inline">
+		<form class="navbar-form form-inline " action="hanghoa.php">
 			<div class="input-group search-box">								
-				<input type="text" id="search" class="form-control" placeholder="Tên sản phẩm...">
+				<input type="text" id="search" name="search" value="<?php if(isset($_GET['search'])){ echo($_GET['search']);}?>" class="form-control" placeholder="Tên sản phẩm...">
 				<div class="input-group-append">
 					<span class="input-group-text">
 						<i class="material-icons">&#xE8B6;</i>
