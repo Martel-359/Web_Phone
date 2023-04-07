@@ -41,7 +41,7 @@ class hang_hoa{
         if(isset($FILES[`hinh`])){
             $file=$FILES[`hinh`];
             $this->hinh =$file[`name`];
-            move_uploaded_file($file[`tmp_name`],'uploads/'.$this->hinh);
+            move_uploaded_file($file[`tmp_name`],$this->hinh);
         }
 
         if(isset($data[`mo_ta`])){
