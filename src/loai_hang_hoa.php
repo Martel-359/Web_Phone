@@ -47,8 +47,4 @@ class loai_hang_hoa{
 		}
 		return $loai_hang_hoas;
     }
-
-
-
-
 }
