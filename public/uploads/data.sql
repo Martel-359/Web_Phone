@@ -43,10 +43,10 @@ CREATE TABLE `khach_hang` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
   `mat_khau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
--- pass=123456(MD5)
+-- pass=123456(sha1)
 INSERT INTO `khach_hang` (`ten`, `dia_chi`, `so_dien_thoai`, `email`,`mat_khau`) VALUES
-('doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-('ducvinh','cantho','0984568267','ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+('doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b'),
+('ducvinh','cantho','0984568267','ducvinh@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b');
 
 CREATE TABLE `admin` (
   `id` bigint(20) UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -54,7 +54,7 @@ CREATE TABLE `admin` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE ,
   `mat_khau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
---pass=123456(MD5)
+--pass=123456(sha1)
 INSERT INTO `admin` (`ten`,`email`,`mat_khau`) VALUES
-('doanhuuvinh','vinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-('ducvinh','ducvinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+('doanhuuvinh','vinhadmin@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b'),
+('ducvinh','ducvinhadmin@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b');
