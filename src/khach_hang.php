@@ -4,7 +4,7 @@ namespace CT275\Labs;
 
 class khach_hang{
 	private $db;
-
+	public $ten;
 	public $id = -1;
 	public $email;
     public $mat_khau;
@@ -29,7 +29,20 @@ class khach_hang{
 		}
 
 		if (isset($data['mat_khau'])) {
-			$this->mat_khau = trim($data['mat_khau']);
+			$this->mat_khau =hash("sha1",(trim($data['mat_khau'])));
+
+		}
+		if (isset($data['ten'])) {
+			$this->ten = trim($data['ten']);
+		}
+
+		if (isset($data['dia_chi'])) {
+			$this->dia_chi =trim($data['dia_chi']);
+
+		}
+		if (isset($data['so_dien_thoai'])) {
+			$this->so_dien_thoai =trim($data['so_dien_thoai']);
+
 		}
 		return $this;
 	}
@@ -68,8 +81,12 @@ class khach_hang{
 	{
 		[
 			'id' => $this->id,
+			'ten' => $this->ten,	
+			'dia_chi' => $this->dia_chi,
+			'so_dien_thoai' => $this->so_dien_thoai,
 			'email' => $this->email,
             'mat_khau' => $this->mat_khau,
+
 		] = $row;
 		return $this;
 	}
@@ -88,11 +105,13 @@ mat_khau = :mat_khau where id = :id');
 			]);
 		} else {
 			$stmt = $this->db->prepare(
-				'insert into khach_hang (email, mat_khau) values (:email, :mat_khau)'
-			);
+				'insert into khach_hang (ten,dia_chi,so_dien_thoai,email, mat_khau) values (:ten,:dia_chi,:so_dien_thoai,:email, :mat_khau)');
 			$result = $stmt->execute([
 				'email' => $this->email,
-				'mat_khau' => $this->mat_khau
+				'mat_khau' => $this->mat_khau,
+				'ten' => $this->ten,
+				'dia_chi' => $this->dia_chi,
+				'so_dien_thoai' => $this->so_dien_thoai,
 			]);
 			if ($result) {
 				$this->id = $this->db->lastInsertId();// lay id giao dich cuoi cung

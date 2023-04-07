@@ -4,9 +4,13 @@ use CT275\Labs\khach_hang;
 use CT275\Labs\admin;
 
 if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
-  session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+  	session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 }
+
 include __DIR__ . '/../function.php';
+
+// $khach_hang= new khach_hang($PDO);
+
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +105,16 @@ include __DIR__ . '/../function.php';
 					<form action="<?= BASE_URL_PATH . 'dangky.php' ?>" method="post">
 						<p class="hint-text">Điền thông tin để đăng ký</p>
 						<div class="form-group">
+							<input name ="ten" type="text" class="form-control" placeholder="Họ và tên" required="required">
+						</div>
+						<div class="form-group">
 							<input name ="email" type="email" class="form-control" placeholder="Tên tài khoản" required="required">
+						</div>
+						<div class="form-group">
+							<input name ="dia_chi" type="text" class="form-control" placeholder="Địa chỉ" required="required">
+						</div>
+						<div class="form-group">
+							<input name ="so_dien_thoai" type="number" class="form-control" placeholder="Số điện thoại" required="required">
 						</div>
 						<div class="form-group">
 							<input name="mat_khau" type="password" class="form-control" placeholder="Mật khẩu" required="required">
@@ -125,7 +138,7 @@ include __DIR__ . '/../function.php';
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="profile.php"><?php echo  $_SESSION['ten'] ?></a>
                     <div class="dropdown-divider"></div>
                     <input type="submit" class="btn btn-danger btn-block" value="Đăng Xuất">
                 </div>

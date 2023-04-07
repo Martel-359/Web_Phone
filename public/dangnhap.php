@@ -12,16 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $khach_hang_2 = new khach_hang($PDO);
     $khach_hang_dangnhap = $khach_hang_2->fill($_POST);
     foreach ($khach_hang_formdbs as $khach_hang_formdb) :
-        if (($khach_hang_formdb->email == $khach_hang_dangnhap->email) && $khach_hang_formdb->mat_khau == $khach_hang_dangnhap->mat_khau ) {
+        if (($khach_hang_formdb->email == $khach_hang_dangnhap->email) && ($khach_hang_formdb->mat_khau) ==  $khach_hang_dangnhap->mat_khau) {
             $_SESSION['khach_hang_formdb'] = 'me';
             $_SESSION['id'] = $khach_hang_formdb->id;// id_kh
             $_SESSION['email'] = $khach_hang_formdb->email;
             $_SESSION['mat_khau'] = $khach_hang_formdb->mat_khau;
+            $_SESSION['ten'] = $khach_hang_formdb->ten;
             //$_SESSION['vaitro']= $khach_hang_formdb->vaitro;
            // $khachhang->save_id_kh($khach_hang_formdb->getId());
-           // echo ('ban da dang nhap thanh cong');
-       
+           // echo ('ban da dang nhap th
             redirect('sanpham.php');
+            echo  $_SESSION['ten'];
            }    
     endforeach;
     // echo ("Đăng nhập thất bại !!! Vui lòng đăng nhập lại");
