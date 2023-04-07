@@ -17,10 +17,6 @@ class hang_hoa{
         return $this->id;
     }
 
-    public function getTen(){
-        return $this->ten_hang_hoa;
-    }
-
     public function __construct($pdo)
 	{	
 		$this->db = $pdo;
@@ -41,7 +37,7 @@ class hang_hoa{
         if(isset($FILES[`hinh`])){
             $file=$FILES[`hinh`];
             $this->hinh =$file[`name`];
-            move_uploaded_file($file[`tmp_name`],$this->hinh);
+            move_uploaded_file($file[`tmp_name`],'uploads'.$this->hinh);
         }
 
         if(isset($data[`mo_ta`])){
@@ -57,7 +53,7 @@ class hang_hoa{
     protected function fillFromDB(array $row)
 	{
 		[
-			'id' => $this->id,
+			// 'id' => $this->id,
 			'ten_hang_hoa' => $this->ten_hang_hoa,
 			'gia' => $this->gia,
             'so_luong_hang' => $this->so_luong_hang,
