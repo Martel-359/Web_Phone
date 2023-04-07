@@ -1,17 +1,51 @@
 <?php 
-include('../partials/header.php');
+include "../partials/header.php";
 
 use CT275\Labs\hang_hoa;
 use CT275\Labs\loai_hang_hoa;
 
-$hang_hoa = new hang_hoa($PDO);
-$hang_hoas = $hang_hoa->all();
+$hang_hoa= new hang_hoa($PDO);
+
 $loai_hang_hoa = new loai_hang_hoa($PDO);
 $loai_hang_hoas = $loai_hang_hoa->all();
 
+if(isset($_REQUEST['id'])){
+    foreach ($loai_hang_hoas as $loai_hang_hoa) :
+        if($_REQUEST['id']==$loai_hang_hoa->getId()){
+            $hang_hoas= $hang_hoa->all_have_id($loai_hang_hoa->getId());
+        }
+    endforeach;
+    
+}
+
+
+if(isset($_GET['search'])){
+    $hang_hoas=$hang_hoa->all_have_ten($_GET['search']);
+}
+
+
+if (!isset($hang_hoas)){
+    $hang_hoas=$hang_hoa->all();
+}
+
+
+
+
+
+
+
+
+// if (!isset($_GET['search']) && !isset($_REQUEST['1']) && !isset($_REQUEST['2']) && ! ) {
+//     $hang_hoas = $hang_hoa->all();
+// }
+// else{
+
+// }
+
+
 ?>
-        <!-- Section-->
-        <section class="py-5">
+
+<section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php foreach ($hang_hoas as $hang_hoa) : ?>  
@@ -43,11 +77,5 @@ $loai_hang_hoas = $loai_hang_hoa->all();
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <?php include('../partials/footer.php') ?>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+
+
