@@ -45,8 +45,8 @@ CREATE TABLE `khach_hang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- pass=123456(MD5)
 INSERT INTO `khach_hang` (`id`, `ten`, `dia_chi`, `so_dien_thoai`, `email`,`mat_khau`) VALUES
-(1,'doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-(2,'ducvinh','cantho','0984568267','ducvinh@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+(1,'doanhuuvinh','angiang','0912345687','doanhuuvinh@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b'),
+(2,'ducvinh','cantho','0984568267','ducvinh@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b');
 
 CREATE TABLE `admin` (
   `id` bigint(20) UNSIGNED  NOT NULL PRIMARY KEY,
@@ -56,5 +56,5 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 --pass=123456(MD5)
 INSERT INTO `admin` (`id`, `ten`,`email`,`mat_khau`) VALUES
-(1,'doanhuuvinh','vinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e'),
-(2,'ducvinh','ducvinhadmin@gmail.com','e10adc3949ba59abbe56e057f20f883e');
+(1,'doanhuuvinh','vinhadmin@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b'),
+(2,'ducvinh','ducvinhadmin@gmail.com','7c4a8d09ca3762af61e59520943dc26494f8941b');

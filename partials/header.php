@@ -138,7 +138,7 @@ include __DIR__ . '/../function.php';
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.php"><?php echo  $_SESSION['ten'] ?></a>
+                    <a class="dropdown-item text-info" href="profile.php"><?php echo  $_SESSION['ten'] ?></a>
                     <div class="dropdown-divider"></div>
                     <input type="submit" class="btn btn-danger btn-block" value="Đăng Xuất">
                 </div>

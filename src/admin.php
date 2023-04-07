@@ -29,9 +29,9 @@ class admin{
 		}
 
 		if (isset($data['mat_khau'])) {
-			$this->mat_khau = trim($data['mat_khau']);
-		}
+			$this->mat_khau =hash("sha1",(trim($data['mat_khau'])));
 
+		}
 		return $this;
 	}
 
