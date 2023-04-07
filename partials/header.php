@@ -133,12 +133,12 @@ include __DIR__ . '/../function.php';
 			<?php if (isset($_SESSION['khach_hang_formdb'])) : ?>
 				<form class="nav-form form-inline mr-2" action="<?= BASE_URL_PATH . 'dangxuat.php' ?>" method="post">
 				<div class="btn-group">
-                <button type="button" class="btn btn-danger">Logout User</button>
+                <button type="button" class="btn btn-danger">Đăng xuất</button>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item text-info" href="profile.php"><?php echo  $_SESSION['ten'] ?></a>
+                    <a class="dropdown-item text-info" href="profile.php"><?php echo  '<i class="bi bi-person"></i>' .$_SESSION['ten'] . "<br>\n" .$_SESSION['email'] ?></a>
                     <div class="dropdown-divider"></div>
                     <input type="submit" class="btn btn-danger btn-block" value="Đăng Xuất">
                 </div>

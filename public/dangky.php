@@ -7,13 +7,13 @@ if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat
 use CT275\Labs\khach_hang;
 include '../partials/header.php';
 $errors = [];
-$dangnhap=false;
+$dangky=false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$khachhang = new khach_hang($PDO);
 	$khachhang->fill($_POST);
 	if ($khachhang->validate()) {
 		$khachhang->save();
-		$dangnhap=true;
+		$dangky=true;
 		
 	}
 	$errors = $khachhang->getValidationErrors();
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <main>
 	<section>
-		<?php if($dangnhap=true) : ?>
+		<?php if($dangky=true) : ?>
 			<div style="height: 200px; margin-top:200px" class="text-center">
 			<h3><p>Chúc mừng bạn đã đăng ký thành công</p></h3>
 			<a href="index.php"> <button class="btn btn-primary">Đi đến trang chủ</button></a>
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 
 		<?php endif ?>
-		<?php if($dangnhap=false) : ?>
+		<?php if($dangky=false) : ?>
 			<div style="height: 200px;">
 			<p> Bạn đã đăng ký không thành công</p>
 			<a href="index.php"> <button>Quay về trang chủ</button></a>

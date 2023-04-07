@@ -6,6 +6,7 @@ require_once '../bootstrap.php';
 use CT275\Labs\admin;
 use CT275\Labs\khach_hang;
 $errors = [];
+$message = "Đăng nhập thất bại - Vui lòng đăng nhập lại";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $khach_hang_db = new khach_hang($PDO);
     $khach_hang_formdbs = $khach_hang_db->all();
@@ -22,9 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
            // $khachhang->save_id_kh($khach_hang_formdb->getId());
            // echo ('ban da dang nhap th
             redirect('sanpham.php');
-           }    
+           }   
     endforeach;
-    // echo ("Đăng nhập thất bại !!! Vui lòng đăng nhập lại");
+    
+    
 
     $admin_db = new admin($PDO);
     $admin_formdbs = $admin_db->all();
@@ -42,5 +44,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('themsanpham.php');
        }    
     endforeach;
-    echo ("Đăng nhập thất bại !!! Vui lòng đăng nhập lại");
+ 
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    // include '../partials/header.php';
+    echo  ('<div style="  padding-bottom: 100px; margin: auto; width: 50%; padding-top: 100px; position: relative;" class="text-center"> 
+    <h1 style ="text-align: center;">
+      <p>Đăng nhập thất bại</p>
+    </h1>
+    <span style ="position: absolute; transform: translate(-50%, -50%);left : 50%; margin-top: 20px">
+    <a style ="text-align: center; padding: 70px 0" href="index.php"> <button 
+    style ="background-color: #008CBA; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
+    <a  href="sanpham.php"> <button style ="background-color: #008CBA; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;"class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+    </span>
+  </div>');
 }
+
