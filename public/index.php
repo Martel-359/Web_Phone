@@ -9,6 +9,7 @@ $hang_hoas = $hang_hoa->all();
 $loai_hang_hoa = new loai_hang_hoa($PDO);
 $loai_hang_hoas = $loai_hang_hoa->all();
 
+
 ?>
 <!-- Section-->
 <section class="py-5">
