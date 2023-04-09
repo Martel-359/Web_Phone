@@ -27,19 +27,17 @@ $loai_hang_hoas = $loai_hang_hoa->all();
                                 <!-- Product price-->
                                 <?= $hang_hoa->gia ?>VND
                             </div>
-<<<<<<< HEAD
+                          
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
-                <?php endforeach ?>
                    
-                            
-=======
->>>>>>> 967c2d3dbf1409ca28ab09a5596a6a7cc7f7f259
+
                         </div>
+                        <?php endforeach ?>
                         <!-- Product actions-->
                         <form action="themgiohang.php?id=<?= $hang_hoa->getId() ?>" method="POST">
   <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -52,7 +50,7 @@ $loai_hang_hoas = $loai_hang_hoa->all();
 
                     </div>
                 </div>
-            <?php endforeach ?>
+           
 
 
         </div>
