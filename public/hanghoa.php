@@ -12,7 +12,7 @@ $loai_hang_hoas = $loai_hang_hoa->all();
 if(isset($_REQUEST['id'])){
     foreach ($loai_hang_hoas as $loai_hang_hoa) :
         if($_REQUEST['id']==$loai_hang_hoa->getId()){
-            $hang_hoas= $hang_hoa->all_have_id($loai_hang_hoa->getId());
+            $hang_hoas= $hang_hoa->all_have_idloai($loai_hang_hoa->getId());
         }
     endforeach;
     
