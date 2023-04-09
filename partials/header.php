@@ -84,12 +84,12 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 		</form>
     
 	<div class="navbar-nav ml-auto action-buttons">
-    <form class="nav-form form-inline mr-2">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill"></i>
-                        Cart
-                        <span class="badge bg-dark text-white rounded-pill">4</span>
-                    </button>
+    <form class="nav-form form-inline mr-2" action="cart.php">
+		<button class="btn btn-outline-dark" type="submit">
+			<i class="bi-cart-fill"></i>
+			Cart
+			<span class="badge bg-dark text-white rounded-pill">4</span>
+		</button>
     </form>
 	<?php if (!isset($_SESSION['ten'])): ?>
 			<div class="nav-item dropdown">

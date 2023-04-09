@@ -53,7 +53,7 @@ class hang_hoa{
     protected function fillFromDB(array $row)
 	{
 		[
-			// 'id' => $this->id,
+			'id' => $this->id,
 			'ten_hang_hoa' => $this->ten_hang_hoa,
 			'gia' => $this->gia,
             'so_luong_hang' => $this->so_luong_hang,
@@ -103,7 +103,18 @@ class hang_hoa{
 		return $hang_hoas;
     }
 
-    public function all_have_id($id){
+    public function have_id($id){
+        $hang_hoas=[];
+        $get_data=$this->db->prepare('SELECT * FROM hang_hoa WHERE id= :id');
+        $get_data->execute(['id' => $id]);
+        while ($row = $get_data->fetch()) {
+			$hang_hoa = new hang_hoa($this->db);
+			$hang_hoa->fillFromDB($row);
+			$hang_hoas[] = $hang_hoa;   
+		}
+		return $hang_hoas;
+    }
+    public function all_have_idloai($id){
         $hang_hoas=[];
         $get_data=$this->db->prepare('SELECT * FROM hang_hoa WHERE id_loai = :id');
         $get_data->execute(['id' => $id]);
