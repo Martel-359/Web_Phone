@@ -7,7 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if (isset($_SESSION['khach_hang_formdb'])) {
     unset($_SESSION['id']);
+    unset($_SESSION['ten']);
     unset($_SESSION['email']);
+    unset($_SESSION['mat_khau']);
+    unset($_SESSION['khach_hang_formdb']);
+    session_destroy();
+    
+  }
+  if (isset($_SESSION['admin_formdb'])) {
+    unset($_SESSION['id']);
+    unset($_SESSION['email']);
+    unset($_SESSION['ten']);
     unset($_SESSION['mat_khau']);
     unset($_SESSION['khach_hang_formdb']);
     session_destroy();

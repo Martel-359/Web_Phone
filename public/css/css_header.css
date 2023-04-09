@@ -1,5 +1,5 @@
 body {
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 .form-control {
 	box-shadow: none;		
@@ -34,7 +34,7 @@ body {
 }
 .navbar a {
 	color: #888;
-	font-size: 15px;
+	font-size: 16px;
 }
 .search-box {
 	position: relative;

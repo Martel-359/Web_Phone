@@ -35,15 +35,21 @@ $loai_hang_hoas= $loai_hang_hoa->all();
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/css_header.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<!-- Thêm mã liên kết của Montserrat vào thẻ head của trang web -->
+       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
         <style>
 
-</style>
+	</style>
 
 </head>
     <body>
@@ -55,10 +61,10 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
-			<a href="index.php" class="nav-item nav-link">Trang chủ</a>
-			<a href="#" class="nav-item nav-link">Về chúng tôi</a>			
+			<a href="index.php" class="nav-item nav-link font-weight-bold">Trang chủ</a>
+			<a href="about.php" class="nav-item nav-link font-weight-bold">Về chúng tôi</a>			
 			<div class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Điện thoại</a>
+				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle font-weight-bold">Điện thoại</a>
 				<div class="dropdown-menu">
 					<?php foreach($loai_hang_hoas as $loai_hang_hoa) : ?>					
 					<a href="<?= BASE_URL_PATH ."hanghoa.php?id=".$loai_hang_hoa->getId()?>" value="<?= $loai_hang_hoa->getId() ?>"  class="dropdown-item"><?= $loai_hang_hoa->ten_loai ?></a>
@@ -85,9 +91,9 @@ $loai_hang_hoas= $loai_hang_hoa->all();
                         <span class="badge bg-dark text-white rounded-pill">4</span>
                     </button>
     </form>
-	<?php if ((!isset($_SESSION['khach_hang_formdb']))): ?>
+	<?php if (!isset($_SESSION['ten'])): ?>
 			<div class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Đăng Nhập</a>
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4 font-weight-bold">Đăng Nhập</a>
                 <div class="dropdown-menu action-form">
 					<form  action="<?= BASE_URL_PATH . 'dangnhap.php' ?>"  method="post">
 						<div class="form-group">
@@ -104,7 +110,7 @@ $loai_hang_hoas= $loai_hang_hoa->all();
                 </div>
 			</div>
 			<div class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Đăng ký</a>
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn font-weight-bold">Đăng ký</a>
                 <div class="dropdown-menu action-form">
 					<form action="<?= BASE_URL_PATH . 'dangky.php' ?>" method="post">
 						<p class="hint-text">Điền thông tin để đăng ký</p>
@@ -134,7 +140,7 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 				</div>
 			</div>
 			<?php endif ?>
-			<?php if (isset($_SESSION['khach_hang_formdb'])) : ?>
+			<?php if (isset($_SESSION['ten'])) : ?>
 				<form class="nav-form form-inline mr-2" action="<?= BASE_URL_PATH . 'dangxuat.php' ?>" method="post">
 				<div class="btn-group">
                 <button type="button" class="btn btn-danger">Đăng xuất</button>
