@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($khach_hang_formdbs as $khach_hang_formdb) :
         if (($khach_hang_formdb->email == $khach_hang_dangnhap->email) && ($khach_hang_formdb->mat_khau) ==  $khach_hang_dangnhap->mat_khau) {
             $_SESSION['khach_hang_formdb'] = 'me';
+            $_SESSION['role'] = 2;
             $_SESSION['id'] = $khach_hang_formdb->id;// id_kh
             $_SESSION['email'] = $khach_hang_formdb->email;
             $_SESSION['mat_khau'] = $khach_hang_formdb->mat_khau;
@@ -35,13 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($admin_formdbs as $admin_formdb) :
         if (($admin_formdb->email == $admin_dangnhap->email) && $admin_formdb->mat_khau == $admin_dangnhap->mat_khau) {
         $_SESSION['admin_formdb'] = 'admin';
+        $_SESSION['role'] = 1;
         //$_SESSION['id'] = $admin_formdb->id;// id_kh
         $_SESSION['email'] = $admin_formdb->email;
         $_SESSION['mat_khau'] = $admin_formdb->mat_khau;
        // $khachhang->save_id_kh($admin_formdb->getId());
        // echo ('ban da dang nhap thanh cong');
+       $_SESSION['ten'] = $admin_formdb->ten;
    
-        redirect('themsanpham.php');
+        redirect('admin.php');
        }    
     endforeach;
  
@@ -53,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </h1>
     <span style ="position: absolute; transform: translate(-50%, -50%);left : 50%; margin-top: 20px">
     <a style ="text-align: center; padding: 70px 0" href="index.php"> <button 
-    style ="background-color: #008CBA; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
+    style ="background-color: #007bff; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
     <a  href="sanpham.php"> <button style ="background-color: #008CBA; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;"class="btn btn-primary">Đi đến trang sản phẩm</button></a>
     </span>
   </div>');

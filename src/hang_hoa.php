@@ -60,6 +60,7 @@ class hang_hoa{
 			'hinh' => $this->hinh,
             'mo_ta' => $this->mo_ta,
 			'id_loai' => $this->id_loai,
+            'id' => $this->id,
 		] = $row;
 		return $this;
 	}
