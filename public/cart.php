@@ -1,6 +1,11 @@
 <?php
-    include "../partials/header.php";
-    
+  include "../partials/header.php";
+  if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
+  	session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+}
+
+
+
 
 ?>
 

@@ -115,15 +115,11 @@ class hang_hoa{
 		return $hang_hoas;
     }
     public function all_have_idloai($id){
-        $hang_hoas=[];
         $get_data=$this->db->prepare('SELECT * FROM hang_hoa WHERE id_loai = :id');
         $get_data->execute(['id' => $id]);
-        while ($row = $get_data->fetch()) {
-			$hang_hoa = new hang_hoa($this->db);
-			$hang_hoa->fillFromDB($row);
-			$hang_hoas[] = $hang_hoa;   
-		}
-        return $hang_hoas;
+		$hang_hoa = new hang_hoa($this->db);
+		$hang_hoa->fillFromDB($get_data->fetch());   
+        return $hang_hoa;
     }
 
     public function all_have_ten($ten){
