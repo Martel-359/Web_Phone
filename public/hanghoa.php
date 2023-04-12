@@ -28,6 +28,7 @@ if (!isset($hang_hoas)){
     $hang_hoas=$hang_hoa->all();
 }
 
+$count = count($hang_hoas);
 
 
 
@@ -46,7 +47,9 @@ if (!isset($hang_hoas)){
 ?>
 
 <section class="py-5">
+            <div class ="text-right text-primary font-weight-bold col-11 ">Hiển thị <span class="text-danger"><?=$count?></span> kết quả</div>
             <div class="container px-4 px-lg-5 mt-5">
+            
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php foreach ($hang_hoas as $hang_hoa) : ?>  
                 <div class="col mb-5">
@@ -63,10 +66,13 @@ if (!isset($hang_hoas)){
                                 </div>
                             </div>
                            <!-- Product actions-->
-                           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                            
+                           <form action="themgiohang.php?id=<?= $hang_hoa->getId() ?>" method="POST">
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <input type="submit" name="themgiohang" value="Add to cart" class="btn btn-outline-dark mt-auto">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 <?php endforeach ?>

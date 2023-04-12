@@ -29,13 +29,13 @@ $loai_hang_hoas = $loai_hang_hoa->all();
                             </div>
                           
                            <!-- Product actions-->
-                           <form action="themgiohang.php?id=<?= $hang_hoa->getId() ?>" method="POST">
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                            <input type="submit" name="themgiohang" value="Add to cart" class="btn btn-outline-dark mt-auto">
-                            </div>
-                        </div>
-                        </form>
+                            <form action="themgiohang.php?id=<?= $hang_hoa->getId() ?>" method="POST">
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <input type="submit" name="themgiohang" value="Add to cart" class="btn btn-outline-dark mt-auto">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                    
