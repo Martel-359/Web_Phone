@@ -9,6 +9,8 @@ $hang_hoa= new hang_hoa($PDO);
 $loai_hang_hoa = new loai_hang_hoa($PDO);
 $loai_hang_hoas = $loai_hang_hoa->all();
 
+
+
 if(isset($_REQUEST['id'])){
     foreach ($loai_hang_hoas as $loai_hang_hoa) :
         if($_REQUEST['id']==$loai_hang_hoa->getId()){
@@ -32,9 +34,6 @@ if (!isset($hang_hoas)){
 
 
 
-
-
-
 // if (!isset($_GET['search']) && !isset($_REQUEST['1']) && !isset($_REQUEST['2']) && ! ) {
 //     $hang_hoas = $hang_hoa->all();
 // }
@@ -46,13 +45,32 @@ if (!isset($hang_hoas)){
 ?>
 
 <section class="py-5">
+<div class="col-7 mb-4">
+               <h5><a style ="text-decoration : none;" class="text-black font-weight-bold" href="hanghoa.php">Điện thoại</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a style ="text-decoration : none;" class="text-secondary" href="">
+               <?php foreach ($hang_hoas as $hang_hoa) :
+                                   if ($hang_hoa->id_loai == 1) {
+                                       echo ("Laptop");
+                                       break;
+                                   } else if ($hang_hoa->id_loai == 2) {
+                                         echo ("Samsung");
+                                         break;
+                                   } else {
+                                       echo ("Iphone");
+                                       break;
+                                   }
+                                      endforeach ?>  
+                                  
+               </a>
+            </h5>
+           </div>
+           
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php foreach ($hang_hoas as $hang_hoa) : ?>  
                 <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="<?=$hang_hoa->hinh ?>" alt="..." />
+                            <img class="card-img-top" src="uploads/<?= $hang_hoa->hinh ?>" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -76,6 +94,7 @@ if (!isset($hang_hoas)){
                     </div>
                 </div>
             </div>
-        </section>
+</section>
+
 
 

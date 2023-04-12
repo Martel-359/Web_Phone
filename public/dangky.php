@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div style="height: 200px; margin-top:200px" class="text-center">
 			<h3><p>Chúc mừng bạn đã đăng ký thành công</p></h3>
 			<a href="index.php"> <button class="btn btn-primary">Đi đến trang chủ</button></a>
-			<a href="sanpham.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+			<a href="hanghoa.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>
 
 			</div>
 

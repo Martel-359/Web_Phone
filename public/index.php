@@ -18,7 +18,7 @@ $loai_hang_hoas = $loai_hang_hoa->all();
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="<?= $hang_hoa->hinh ?>" alt="..." />
+                        <img class="card-img-top" src="uploads/<?= $hang_hoa->hinh ?>" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

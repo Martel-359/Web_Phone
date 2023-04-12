@@ -60,6 +60,10 @@ class khach_hang{
         if (!$this->mat_khau) {
 			$this->errors['mat_khau'] = 'Mật khẩu không được rỗng.';
 		}
+		if (strlen($this->so_dien_thoai) < 10 || strlen($this->so_dien_thoai) > 11) {
+			$this->errors['so_dien_thoai'] = 'Invalid phone number.';
+		}
+
 
 		return empty($this->errors);
 	}

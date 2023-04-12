@@ -6,7 +6,7 @@ use Error;
 class loai_hang_hoa{
     private $db;
 
-    private $id;
+    public $id;
     public $ten_loai;
     private $errors=[];
 

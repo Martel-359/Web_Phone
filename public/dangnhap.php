@@ -50,15 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
     echo "<script type='text/javascript'>alert('$message');</script>";
     // include '../partials/header.php';
-    echo  ('<div style="  padding-bottom: 100px; margin: auto; width: 50%; padding-top: 100px; position: relative;" class="text-center"> 
-    <h1 style ="text-align: center;">
-      <p>Đăng nhập thất bại</p>
-    </h1>
-    <span style ="position: absolute; transform: translate(-50%, -50%);left : 50%; margin-top: 20px">
-    <a style ="text-align: center; padding: 70px 0" href="index.php"> <button 
-    style ="background-color: #007bff; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
-    <a  href="sanpham.php"> <button style ="background-color: #008CBA; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;"class="btn btn-primary">Đi đến trang sản phẩm</button></a>
-    </span>
+  echo ('
+  <div style="style="padding-bottom: 100px; margin-top:100px; width: 50%; padding-top: 100px; position: relative" class="text-center">
+  <h1 style ="text-align: center; margin-top: 100px;"><p> Đăng nhập thất bại !</p></h1>
+    <div style ="text-align: center;">
+  <a href="index.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
+  <a href="hanghoa.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+  </div>
   </div>');
 }
 

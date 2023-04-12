@@ -34,3 +34,8 @@ li.itemLogin{
 ul.ulLogin{
     width: 300px;
 }
+.table-hover tbody tr:hover {
+    background-color: #2d2dc8; /* Màu sắc khi hover */
+    cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
+  }
+ 
