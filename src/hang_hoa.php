@@ -36,12 +36,16 @@ class hang_hoa
 		if (isset($data['gia'])) {
 			$this->gia = $data['gia'];
 		}
-
-		if (isset($FILES['hinh'])) {
-			$file = $FILES['hinh']; // lay file
-			$this->hinh = $file['name']; // lay hinh anh
-				move_uploaded_file($file['tmp_name'], 'uploads/'. $this->hinh);
-		
+		if (isset($_FILES['hinh'])) {
+			$file = $_FILES['hinh'];
+			$this->hinh = $file['name'];
+			$upload_dir = 'uploads/';
+			$upload_file = $upload_dir . $this->hinh;
+			if (file_exists($upload_file)) {
+				echo "File already exists.";
+			} else {
+				move_uploaded_file($file['tmp_name'], $upload_file);
+			}
 		}
 		if (isset($data['id_loai'])) {
 			$this->id_loai =  preg_replace('/\D+/', '', $data['id_loai']);

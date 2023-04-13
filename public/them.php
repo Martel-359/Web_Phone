@@ -15,7 +15,7 @@ if(!isset($_SESSION['admin_formdb'])){
     echo('<div style="height: 300px; margin-top:150px;margin:" class="text-center">
     <h3><p>Bạn không có quyền truy xuất trang này</p></h3>
     <a href="index.php"> <button class="btn btn-primary">Đi đến trang chủ</button></a>
-    <a href="hang_hoa.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>');
+    <a href="hanghoa.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>');
     exit();
 
 }
@@ -89,7 +89,7 @@ include '../partials/header.php';
 				<label class="form-label display-7 font-weight-bold "  for="loai_hang_hoa">Loại sản phẩm</label>
 				<select name="id_loai" class="form-control">
 					<?php foreach ($loai_hang_hoas as $loai_hang_hoa) : ?>
-						<option value="<?= $loai_hang_hoa->id?>"> <?= $loai_hang_hoa->ten_loai ?></option>
+							<option value=" <?= $loai_hang_hoa->id ?>"> <?= $loai_hang_hoa->ten_loai ?></option>
 					<?php endforeach ?>
 				</select>
 			</div>

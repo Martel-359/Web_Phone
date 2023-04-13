@@ -37,20 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (($admin_formdb->email == $admin_dangnhap->email) && $admin_formdb->mat_khau == $admin_dangnhap->mat_khau) {
         $_SESSION['admin_formdb'] = 'admin';
         $_SESSION['role'] = 1;
-        //$_SESSION['id'] = $admin_formdb->id;// id_kh
         $_SESSION['email'] = $admin_formdb->email;
         $_SESSION['mat_khau'] = $admin_formdb->mat_khau;
-       // $khachhang->save_id_kh($admin_formdb->getId());
-       // echo ('ban da dang nhap thanh cong');
        $_SESSION['ten'] = $admin_formdb->ten;
-   
         redirect('admin.php');
        }    
     endforeach;
  
     echo "<script type='text/javascript'>alert('$message');</script>";
-    // include '../partials/header.php';
-  echo ('
+     echo ('
   <div style="style="padding-bottom: 100px; margin-top:100px; width: 50%; padding-top: 100px; position: relative" class="text-center">
   <h1 style ="text-align: center; margin-top: 100px;"><p> Đăng nhập thất bại !</p></h1>
     <div style ="text-align: center;">

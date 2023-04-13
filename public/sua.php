@@ -93,8 +93,17 @@ include '../partials/header.php';
 			<div class="form-group">
 				<label class="form-label display-7 font-weight-bold "  for="loai_hang_hoa">Loại sản phẩm</label>
 				<select name="id_loai" class="form-control">
+					<option value=" <?= $hang_hoa->id_loai ?>" selected> <?php  if ($hang_hoa->id_loai == 1) {
+                                       echo ("Laptop");
+                                   } if ($hang_hoa->id_loai == 2) {
+                                       echo ("SamSung");
+                                   } else if ($hang_hoa->id_loai == 3) {
+                                       echo ("Iphone");
+                                   } ?></option>
 					<?php foreach ($loai_hang_hoas as $loai_hang_hoa) : ?>
-						<option value="<?= $loai_hang_hoa->id?>"> <?= $loai_hang_hoa->ten_loai ?></option>
+						<?php if ($hang_hoa->id_loai != $loai_hang_hoa->id) : ?>
+							<option value=" <?= $loai_hang_hoa->id ?>"> <?= $loai_hang_hoa->ten_loai ?></option>
+						<?php endif ?>
 					<?php endforeach ?>
 				</select>
 			</div>
