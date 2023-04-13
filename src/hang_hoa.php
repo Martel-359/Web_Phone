@@ -99,6 +99,7 @@ class hang_hoa
 		return $hang_hoas;
     }
 
+
 	public function COUNT()
 	{
 		$stmt = $this->db->prepare('select COUNT(id) from hang_hoa');

@@ -12,10 +12,14 @@ $loai_hang_hoa = new loai_hang_hoa($PDO);
 $loai_hang_hoas = $loai_hang_hoa->all();
 
 if(!isset($_SESSION['admin_formdb'])){
-    echo('<div style="height: 300px; margin-top:150px;margin:" class="text-center">
-    <h3><p>Bạn không có quyền truy xuất trang này</p></h3>
-    <a href="index.php"> <button class="btn btn-primary">Đi đến trang chủ</button></a>
-    <a href="hanghoa.php"> <button class="btn btn-primary">Đi đến trang sản phẩm</button></a>');
+    echo ('
+  <div style="style="padding-bottom: 100px; margin-top:100px; width: 50%; padding-top: 100px; position: relative" class="text-center">
+  <h1 style ="text-align: center; margin-top: 100px;"><p> Không có quyền truy cập trang này!!!</p></h1>
+    <div style ="text-align: center;">
+  <a href="index.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
+  <a href="hanghoa.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+  </div>
+  </div>');
     exit();
 
 }

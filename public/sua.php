@@ -1,5 +1,8 @@
 <?php
 require_once '../bootstrap.php'; // tu dong nap lop,khong gian ten,dbconnect
+if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat 
+	session_start(); //if(session_status() !== PHP_SESSION_ACTIVE) session_start();
+  }
 use CT275\Labs\loai_hang_hoa;
 use CT275\Labs\hang_hoa;
 $hang_hoa = new hang_hoa($PDO);
@@ -9,7 +12,22 @@ $loai_hang_hoas = $loai_hang_hoa->all();
 $id = isset($_REQUEST['id']) ?
 	filter_var($_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT) : -1;
 $hang_hoa->find($id);
-//$loai_loai_hang_hoa ->find($id);
+if ($id < 0 || !($hang_hoa->find($id))) {
+	redirect(BASE_URL_PATH);
+	}
+
+if(!isset($_SESSION['admin_formdb'])){
+    echo ('
+  <div style="style="padding-bottom: 100px; margin-top:100px; width: 50%; padding-top: 100px; position: relative" class="text-center">
+  <h1 style ="text-align: center; margin-top: 100px;"><p> Không có quyền truy cập trang này!!!</p></h1>
+    <div style ="text-align: center;">
+  <a href="index.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang chủ</button></a>
+  <a href="hanghoa.php"> <button style ="background-color: #0d6efd; color: white; font-size: 14px;border: none; padding: 12px 26px;cursor: pointer;" class="btn btn-primary">Đi đến trang sản phẩm</button></a>
+  </div>
+  </div>');
+    exit();
+
+}
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if ($hang_hoa->update($_POST, $_FILES)) {
