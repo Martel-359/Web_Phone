@@ -14,6 +14,11 @@
 <section class="h-100 h-custom" style="background-color: #00c8ff;">
   
   <div class="container py-5 h-100">
+    <div class="text-left text-primary font-weight-bold col-2 pb-3">
+        <h5 class="mb-0"><a href="index.php" class=" text-white "><i
+          class="fas fa-long-arrow-alt-left me-2 text-white"></i>Về cửa hàng</a>
+        </h5>
+    </div>
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
         <div class="card card-registration card-registration-2" style="border-radius: 15px;">
@@ -23,7 +28,7 @@
                 <div class="p-2">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Giỏ Hàng</h1>
-                    <h6 class="mb-0 text-muted"><?=$count?> sản phẩm</h6>
+                    <h6 class="mb-0 text-muted"><?= $count?> sản phẩm</h6>
                   </div>
                   <hr class="my-4">
                   <?php  if(isset($_SESSION['carts'])){
@@ -33,7 +38,7 @@
                   <div class="row mb-4 d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
                       <img
-                        src="<?=$cart['hinh'] ?>"
+                        src="uploads/<?=$cart['hinh'] ?>"
                         class="img-fluid rounded-3" alt="Cotton T-shirt">
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
@@ -69,10 +74,7 @@
                   
                   <hr class="my-4">
 
-                  <div class="pt-5 position-absolute">
-                    <h6 class="mb-0"><a href="index.php" class="text-body"><i
-                          class="fas fa-long-arrow-alt-left me-2"></i>Về cửa hàng</a></h6>
-                  </div>
+                  
                 </div>
               </div>
               <div class="col-lg-4 bg-grey border-left">
@@ -116,10 +118,10 @@
                     }
                     ?>VNĐ</h5>
                   </div>
-
-                  <button type="button" class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark">Hoàn Tất Đặt Hàng</button>
-
+                  <form  action="themgiohang.php?thanhtoan=1" method="post">
+                    <button type="submit" id="hoan-tat-dh" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Hoàn Tất Đặt Hàng</button>
+                  </form>
+                  
                 </div>
               </div>
             </div>
@@ -129,3 +131,14 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function() {
+    $("#hoan-tat-dh").click(function(event) {
+      event.preventDefault(); 
+      alert("Đặt hàng thành công!");
+      $(this).closest("form").submit(); 
+    });
+  });
+</script>
+
