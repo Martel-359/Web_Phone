@@ -102,9 +102,9 @@ class khach_hang{
 			$stmt = $this->db->prepare('update khach_hang set email = :email,
 mat_khau = :mat_khau where id = :id');
 			$result = $stmt->execute([
-				'name' => $this->name,
-				'phone' => $this->phone,
-				'notes' => $this->notes,
+				'name' => $this->ten,
+				'email' => $this->email,
+				'notes' => $this->mat_khau,
 				'id' => $this->id
 			]);
 		} else {

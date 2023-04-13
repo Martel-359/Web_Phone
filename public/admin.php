@@ -4,14 +4,10 @@ include '../partials/header.php';
 use CT275\Labs\hang_hoa;
 
 $hang_hoa = new hang_hoa($PDO); // khoi tao de sd cac ham
-// $count = $hang_hoa->COUNT();
-//$order_by = 'ten_loai';
-//$hang_hoas = $hang_hoa->order_by($order_by);
+
 $hang_hoas = $hang_hoa->all();
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sap_xep'])) {
-    $hang_hoas = $hang_hoa->order_by($_POST['sap_xep']);
-    //redirect('nhanvien.php');
-}
+
+
 if(!isset($_SESSION['admin_formdb'])){
     echo('<div style="height: 300px; margin-top:150px;margin:" class="text-center">
     <h3><p>Bạn không có quyền truy xuất trang này</p></h3>
@@ -32,12 +28,8 @@ if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat
        <form class="nav--product row " action="nhanvien.php" method="post">
            <div class="col-7 mt-2 mb-4">
                <h5><a style ="text-decoration : none;" class="text-black font-weight-bold" href="index.php">Trang chủ</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a style ="text-decoration :none;" class="text-secondary" href="">Admin</a></h5>
-           </div>
-           <!-- <div class="col-2 text-end">
-               <p>
-                   Hiển thị <?= $count ?> kết quả</p>
-           </div>                       -->
-           </div>
+           </div>                     
+           
            </form>
            <section">
                <a href="<?= BASE_URL_PATH . 'them.php' ?>" class="btn btn-primary" style="margin-bottom: 30px;">

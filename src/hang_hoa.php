@@ -98,36 +98,7 @@ class hang_hoa
 		}
 		return $hang_hoas;
     }
-	// public function all_loai_sp($gt, $tenloai)
-	// {
-	// 	$sanphams = [];
-	// 	if ($tenloai !== 'all') {
-	// 		$stmt = $this->db->prepare('select *  from (hang_hoa inner join loai_sanpham on hang_hoa.id_loai=loai_sanpham.id_loai) inner join nhanvien on hang_hoa.id_nv=nhanvien.id_nv 
-	// 		where (gioitinh_sanpham = :gt and ten_loai = :ten_loai)');
-	// 		$stmt->execute(
-	// 			[
-	// 				'gt' => $gt,
-	// 				'ten_loai' => $tenloai
-	// 			]
-	// 		);
-	// 	} else {
-	
-	// 	$stmt = $this->db->prepare('select *  from (hang_hoa inner join loai_sanpham on hang_hoa.id_loai=loai_sanpham.id_loai) inner join nhanvien on hang_hoa.id_nv=nhanvien.id_nv 
-	// 	where (gioitinh_sanpham = :gt)');
-	// 	$stmt->execute(
-	// 		[
-	// 			'gt' => $gt
-	// 		]
-	// 	);
-	// 	}
-	
-	// 	while ($row = $stmt->fetch()) {
-	// 		$hang_hoa = new hang_hoa($this->db);
-	// 		$hang_hoa->fillFromDB($row);
-	// 		$sanphams[] = $hang_hoa;
-	// 	}
-	// 	return $sanphams;
-	// }
+
 	public function COUNT()
 	{
 		$stmt = $this->db->prepare('select COUNT(id) from hang_hoa');
@@ -136,18 +107,7 @@ class hang_hoa
 		$count1 = $count[0];
 		return $count1;
 	}
-	public function order_by($order_by)
-	{
-		$sanphams = [];
-		$stmt = $this->db->prepare('select *  from (hang_hoa inner join loai_sanpham on hang_hoa.id_loai=loai_sanpham.id_loai) inner join nhanvien on hang_hoa.id_nv=nhanvien.id_nv ORDER BY ' . $order_by);
-		$stmt->execute();
-		while ($row = $stmt->fetch()) {
-			$hang_hoa = new hang_hoa($this->db);
-			$hang_hoa->fillFromDB($row);
-			$sanphams[] = $hang_hoa;
-		}
-		return $sanphams;
-	}
+
 	protected function fillFromDB(array $row)
 	{
 		[
@@ -221,21 +181,7 @@ values (:ten_hang_hoa, :gia,:so_luong_hang, :hinh,:mo_ta,:id_loai,now())'
 		$stmt = $this->db->prepare('delete from hang_hoa where id = :id');
 		return $stmt->execute(['id' => $this->id]);
 	}
-	//SELECT * FROM `hang_hoa` WHERE `ten_hang_hoa` LIKE '%Dây%'
-	// public function search($key)
-	// {
-	// 	$sanphams = [];
-	// 	$stmt = $this->db->prepare('select *  from ((hang_hoa inner join loai_sanpham on hang_hoa.id_loai=loai_sanpham.id_loai) inner join nhanvien on hang_hoa.id_nv=nhanvien.id_nv) 
-	// 	where ten_hang_hoa like :key or gia like :key or ten_loai like :key');
-	// 	$stmt->execute(['key' => "%$key%"]);
 
-	// 	while ($row = $stmt->fetch()) {
-	// 		$hang_hoa = new hang_hoa($this->db);
-	// 		$hang_hoa->fillFromDB($row);
-	// 		$sanphams[] = $hang_hoa;
-	// 	}
-	// 	return $sanphams;
-	// }
 	
     public function have_id($id){
         $hang_hoas=[];

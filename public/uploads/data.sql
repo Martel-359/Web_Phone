@@ -17,6 +17,7 @@ CREATE TABLE `hang_hoa` (
   `hinh` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mo_ta` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_loai` int(11) NOT NULL,
+  `ngaynhap` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT `fk_hang_hoa_loai_hang_hoa` FOREIGN KEY (`id_loai`) REFERENCES `loai_hang_hoa` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
