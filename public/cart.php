@@ -28,7 +28,9 @@
                 <div class="p-2">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Giỏ Hàng</h1>
-                    <h6 class="mb-0 text-muted"><?= $count?> sản phẩm</h6>
+                    <h6 class="mb-0 text-muted"><?php if(isset($count)){
+                      echo $count;
+                    }  else{echo 0;} ?> sản phẩm</h6>
                   </div>
                   <hr class="my-4">
                   <?php  if(isset($_SESSION['carts'])){

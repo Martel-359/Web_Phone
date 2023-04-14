@@ -16,6 +16,10 @@ include __DIR__ . '/../function.php';
 
 $loai_hang_hoa = new loai_hang_hoa($PDO);
 $loai_hang_hoas= $loai_hang_hoa->all();
+if(isset($_SESSION['carts'])){
+    $count = count($_SESSION['carts']);
+  }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +94,9 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 		<button class="btn btn-outline-dark" type="submit">
 			<i class="bi-cart-fill"></i>
 			Cart
-			<span class="badge bg-dark text-white rounded-pill">4</span>
+			<span class="badge bg-dark text-white rounded-pill"><?php if(isset($count)){
+                      echo $count;
+                    }  else{echo 0;} ?> </span>
 		</button>
     </form>
 	<?php if (!isset($_SESSION['ten'])): ?>
