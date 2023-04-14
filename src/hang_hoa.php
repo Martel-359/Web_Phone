@@ -99,6 +99,7 @@ class hang_hoa
 		return $hang_hoas;
     }
 
+
 	public function COUNT()
 	{
 		$stmt = $this->db->prepare('select COUNT(id) from hang_hoa');
@@ -107,7 +108,6 @@ class hang_hoa
 		$count1 = $count[0];
 		return $count1;
 	}
-
 	protected function fillFromDB(array $row)
 	{
 		[
@@ -181,7 +181,6 @@ values (:ten_hang_hoa, :gia,:so_luong_hang, :hinh,:mo_ta,:id_loai,now())'
 		$stmt = $this->db->prepare('delete from hang_hoa where id = :id');
 		return $stmt->execute(['id' => $this->id]);
 	}
-
 	
     public function have_id($id){
         $hang_hoas=[];

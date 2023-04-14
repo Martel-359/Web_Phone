@@ -19,6 +19,7 @@ if(isset($_SESSION['carts'])&&isset($_GET['xoa'])){
 } 
 
 
+
 if(isset($_SESSION['carts'])&&isset($_GET['cong'])){
     foreach($_SESSION['carts'] as &$cart ) {
         if($cart['id'] == $_GET['cong'] && $cart['so_luong']<10) {
@@ -38,6 +39,18 @@ if(isset($_SESSION['carts'])&&isset($_GET['tru'])){
     }
     header("Location:cart.php");
 }
+
+if(isset($_SESSION['carts'])&&isset($_GET['thanhtoan'])){
+    foreach($_SESSION['carts'] as $key=>$values){
+            unset($_SESSION['carts'][$key]);
+            
+    }
+    $_SESSION["carts"] = array_values($_SESSION["carts"]);
+    header("Location:cart.php");
+} 
+
+
+
 
 
 if(isset($_POST['themgiohang'])) {

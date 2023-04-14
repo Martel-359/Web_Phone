@@ -22,7 +22,6 @@ CREATE TABLE `hang_hoa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-
 INSERT INTO `hang_hoa` ( `ten_hang_hoa`,`gia`, `so_luong_hang`, `hinh`, `mo_ta`, `id_loai`,`ngaynhap`) VALUES
 ('Điện thoại Samsung Galaxy Note 10+',15900000, 90, '12333.png', 'mo_ta', 2,'2023-04-11 20:54:03'),
 ('Điện thoại Samsung Galaxy A21s (6GB/64GB)',52900000, 96, 'samsung-galaxy-a21s-055620-045627-400x460.png', 'mo_ta', 2,'2023-04-11 20:51:03'),
