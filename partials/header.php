@@ -64,7 +64,11 @@ $loai_hang_hoas= $loai_hang_hoa->all();
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
 			<a href="index.php" class="nav-item nav-link font-weight-bold">Trang chủ</a>
-			<a href="news.php" class="nav-item nav-link font-weight-bold">Về chúng tôi</a>			
+			<?php if(isset($_SESSION['admin_formdb'])) : ?>
+			<a href="admin.php" class="nav-item nav-link font-weight-bold">Admin</a>
+
+			<?php endif ?>
+			<a href="news.php" class="nav-item nav-link font-weight-bold">Tin tức</a>			
 			<div class="nav-item dropdown">
 				<a href="hanghoa.php" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle font-weight-bold">Điện thoại</a>
 				<div class="dropdown-menu">

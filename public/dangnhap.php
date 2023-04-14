@@ -20,9 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $khach_hang_formdb->email;
             $_SESSION['mat_khau'] = $khach_hang_formdb->mat_khau;
             $_SESSION['ten'] = $khach_hang_formdb->ten;
-            //$_SESSION['vaitro']= $khach_hang_formdb->vaitro;
-           // $khachhang->save_id_kh($khach_hang_formdb->getId());
-           // echo ('ban da dang nhap th
             redirect('hanghoa.php');
            }   
     endforeach;

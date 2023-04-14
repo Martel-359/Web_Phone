@@ -25,7 +25,7 @@ if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat
 <section class="py-5">
 
 <main class="container">
-       <form class="nav--product row " action="nhanvien.php" method="post">
+       <form class="nav--product row " action="admin.php" method="post">
            <div class="col-7 mt-2 mb-4">
                <h5><a style ="text-decoration : none;" class="text-black font-weight-bold" href="index.php">Trang chủ</a> <i  style="font-size: 14px" class="bi bi-chevron-right "></i> <a style ="text-decoration :none;" class="text-secondary" href="">Admin</a></h5>
            </div>                     
@@ -72,7 +72,7 @@ if (session_status() === PHP_SESSION_NONE) { // neu trang thai chua duoc bat
                                <td ><?= htmlspecialchars($hang_hoa->so_luong_hang) ?></td>
                                <td><?= date("d-m-Y", strtotime($hang_hoa->ngaynhap)) ?></td>
                                <td >
-                                   <a href="<?= BASE_URL_PATH . 'sua.php?id=' . $hang_hoa->getId() ?>" class="btn btn-xs btn-warning">
+                                   <a href="<?= BASE_URL_PATH . 'sua.php?id=' . $hang_hoa->getId() ?>" class="btn btn-xs btn-warning mb-4">
                                        <i alt="Edit" class="fa fa-pencil"> Edit</i></a>
                                        <form class="delete" action="<?= BASE_URL_PATH . 'xoa.php' ?>" method="POST" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $hang_hoa->getId() ?>">
